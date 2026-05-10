@@ -27,6 +27,7 @@ const { t } = useI18n();
 const { accountId, currentAccount } = useAccount();
 const currentUser = useMapGetter('getCurrentUser');
 const globalConfig = useMapGetter('globalConfig/get');
+const sidebarBrandName = 'Sunrise Assistencial';
 
 const userAccounts = useMapGetter('getUserAccounts');
 
@@ -58,10 +59,10 @@ const emitNewAccount = () => {
         v-if="isCollapsed"
         class="grid flex-shrink-0 place-content-center p-2 rounded-lg cursor-pointer hover:bg-n-alpha-1"
         :class="{ 'bg-n-alpha-1': isOpen }"
-        :title="currentAccount.name"
+        :title="sidebarBrandName"
         @click="toggle"
       >
-        <Logo class="size-7" />
+        <Logo class="size-7" :alt="sidebarBrandName" />
       </button>
       <!-- Expanded view: Account name trigger -->
       <button
@@ -83,7 +84,7 @@ const emitNewAccount = () => {
           class="text-sm font-medium leading-5 text-n-slate-12 truncate"
           aria-live="polite"
         >
-          {{ currentAccount.name }}
+          {{ sidebarBrandName }}
         </span>
 
         <span

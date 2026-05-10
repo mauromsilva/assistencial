@@ -11,6 +11,7 @@ const globalConfig = useMapGetter('globalConfig/get');
     v-if="globalConfig.logoThumbnail"
     v-bind="attrs"
     :src="globalConfig.logoThumbnail"
+    :alt="attrs.alt || globalConfig.installationName || 'Sunrise Assistencial'"
   />
   <svg
     v-else
